@@ -80,7 +80,17 @@
             const compSelection = computerPlay()
             console.log("Computer: " + compSelection)
             console.log(playRound(playerSelect, compSelection))
-            
+
+            function game(){
+                var player = prompt("ENTER: rock, paper, or scissors")
+                console.log("Player: " + player);
+                var computer = computerPlay()
+                console.log("Computer: " + computer);
+                return playRound(player,computer)
+
+            }
+
+            console.log(game());
         </script>
     </body>
 </html>
