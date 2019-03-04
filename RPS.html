@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <Title>Rock Paper Scissors</Title>
+    </head>
+    <body>
+        <script>
+            function computerPlay(){
+                let temp = Math.floor(Math.random() * 3)
+                var hand = ""
+                switch(temp){
+                    case 0: 
+                        hand = "rock"
+                        break;
+                    case 1: 
+                        hand = "paper"
+                        break;
+                    case 2: 
+                        hand = "scissors"
+                        break;
+                }
+                return hand;
+            }
+            function playRound(plyr, comp){
+                var result;
+                switch(plyr){
+                    case "rock":
+                        switch(comp){
+                            case "rock":
+                                result = "DRAW"
+                                break;
+                            case "paper":    
+                                result = "COMPUTER WINS"
+                                break;
+                            case "scissors": 
+                                result = "PLAYER WINS"
+                                break;
+                            default:
+                                break;
+                                
+                        }
+                        break;
+                    case "paper":
+                        switch(comp){
+                            case "rock":
+                                result = "PLAYER WIN"
+                                break;
+                            case "paper":    
+                                result = "DRAW";
+                                break;
+                            case "scissors": 
+                                result = "COMPUTER WINS"
+                                break;
+                            default:
+                                 
+                        }
+                        break;
+                    case "scissors":
+                        switch(comp){
+                            case "rock":
+                                result = "COMPUTER WINS";
+                                break;
+                            case "paper":    
+                                result = "PLAYER WINS";
+                                break;
+                            case "scissors": 
+                                result = "DRAW"
+                                break;
+                            default:
+                                
+                        }
+                        break;
+                }
+                
+                return result;
+            }
+            const playerSelect = "rock"
+            console.log("Player: " + playerSelect);
+            const compSelection = computerPlay()
+            console.log("Computer: " + compSelection)
+            console.log(playRound(playerSelect, compSelection))
+            
+        </script>
+    </body>
+</html>
