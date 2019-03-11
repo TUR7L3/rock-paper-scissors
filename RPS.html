@@ -38,7 +38,6 @@
                                 break;
                             default:
                                 break;
-                                
                         }
                         break;
                     case "paper":
@@ -53,7 +52,6 @@
                                 result = "COMPUTER WINS"
                                 break;
                             default:
-                                 
                         }
                         break;
                     case "scissors":
@@ -68,13 +66,13 @@
                                 result = "DRAW"
                                 break;
                             default:
-                                
                         }
                         break;
                 }
-                
+
                 return result;
             }
+            
             const playerSelect = "rock"
             console.log("Player: " + playerSelect);
             const compSelection = computerPlay()
@@ -87,10 +85,10 @@
                 var computer = computerPlay()
                 console.log("Computer: " + computer);
                 return playRound(player,computer)
-
             }
 
             console.log(game());
+
         </script>
     </body>
 </html>
