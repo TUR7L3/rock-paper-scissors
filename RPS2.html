@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <Title>Rock Paper Scissors</Title>
+    </head>
+    <body>
+        <script>
+           
+           const HAND = [
+                "ROCK", 
+                "PAPER", 
+                "SCISSORS"
+                ];
+
+            const btns =  [
+                document.createElement("BUTTON"),   // 0 rock
+                document.createElement("BUTTON"),   // 1 paper
+                document.createElement("BUTTON")];  // 2 scissors
+            
+            const t =  [
+                document.createTextNode(HAND[0]),   // 0 rock
+                document.createTextNode(HAND[1]),   // 1 paper
+                document.createTextNode(HAND[2])];  // 2 scissors
+            
+            function initBtn(){
+                for(i = 0; i<btns.length; i++){
+                    btns[i].appendChild(t[i]); // append text to button
+                    btns[i].addEventListener("click", plyrHand(i)); //add event listener for button click
+                    document.body.appendChild(btns[i]); //add button to body
+                }
+            }
+
+            function plyrHand(i){
+                return function(){
+                   console.log( HAND[i] );
+                   return i;
+                }
+            }
+
+            function cpuHand(){
+                let result = Math.floor(Math.random() * Math.floor(3));
+                console.log(HAND[i]);
+                return result;
+            }
+            function game(){ 
+                initBtn();
+
+                
+
+            }
+
+            game();
+        </script>
+    </body>
+</html>
