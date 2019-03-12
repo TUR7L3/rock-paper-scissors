@@ -7,7 +7,14 @@
     <body>
         <script>
            
-           const HAND = [
+            var pHand, cHand;
+            var pScore = 0, cScore = 0;
+
+            const WIN = 1;
+            const LOSE = 2;
+            const DRAW = 3;
+
+            const HAND = [
                 "ROCK", 
                 "PAPER", 
                 "SCISSORS"
@@ -23,34 +30,62 @@
                 document.createTextNode(HAND[1]),   // 1 paper
                 document.createTextNode(HAND[2])];  // 2 scissors
             
-            function initBtn(){
+            const playBtn = document.createElement("BUTTON");
+            const playT = document.createTextNode("PLAY");
+
+            function init_Btn(){
                 for(i = 0; i<btns.length; i++){
                     btns[i].appendChild(t[i]); // append text to button
-                    btns[i].addEventListener("click", plyrHand(i)); //add event listener for button click
+                    btns[i].addEventListener("click", set_pHand(i)); //add event listener for button click
                     document.body.appendChild(btns[i]); //add button to body
                 }
             }
-
-            function plyrHand(i){
+            
+            function init_playBtn(){
+                playBtn.appendChild(playT);
+                playBtn.addEventListener("click", playRound());
+                document.body.appendChild(playBtn);
+            }
+            
+            /**Set player hand**/
+            function set_pHand(i){
                 return function(){
-                   console.log( HAND[i] );
-                   return i;
+                    pHand = i;
+                    console.log( HAND[pHand]);
                 }
             }
-
-            function cpuHand(){
-                let result = Math.floor(Math.random() * Math.floor(3));
-                console.log(HAND[i]);
-                return result;
+            /**Set computer hand**/
+            function set_cHand(){
+                cHand = Math.floor(Math.random() * Math.floor(3));
+                console.log(HAND[cHand]);
             }
-            function game(){ 
-                initBtn();
-
+            
+            function playRound(){
                 
-
+                return function(){
+                    set_cHand();
+                    if((pHand+1)%3 == cHand){
+                        cScore++;
+                        game();
+                    }
+                    else if((cHand+1)%3 == pHand){
+                        pScore++;
+                        game();
+                    }
+                    else{
+                        game();
+                    }
+                }
             }
-
-            game();
+            function game(){
+                
+                if(pScore < 5 && cScore < 5){
+                        console.log(pScore + " | " + cScore);
+                }
+            }
+            init_Btn();
+            init_playBtn();
+            
         </script>
     </body>
 </html>
