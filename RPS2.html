@@ -61,6 +61,7 @@
                     console.log( HAND[pHand]);
                 }
             }
+            
             /**Set computer hand**/
             function set_cHand(){
                 cHand = Math.floor(Math.random() * Math.floor(3));
@@ -102,7 +103,22 @@
                 else{
                     console.log("WHY ARE YOU LIKE THIS?!")
                 }
+                printScoreBoard();
             }
+            
+            
+
+            scoreDiv = document.createElement('div');
+
+            document.body.insertBefore(scoreDiv, document.body.firstChild);
+            const scoreBoard = document.createElement('H1');
+            scoreDiv.appendChild(scoreBoard);
+            //var scoreBoardText = document.createTextNode(pScore + ' | ' + cScore);;
+            
+            function printScoreBoard(){
+                scoreBoard.textContent = pScore + ' | ' + cScore;
+            }
+
             init_Btn();
             init_playBtn();
             
