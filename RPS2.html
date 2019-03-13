@@ -10,10 +10,6 @@
             var pHand, cHand;
             var pScore = 0, cScore = 0;
 
-            const WIN = 1;
-            const LOSE = 2;
-            const DRAW = 3;
-
             const HAND = [
                 "ROCK", 
                 "PAPER", 
@@ -32,7 +28,7 @@
             
             const playBtn = document.createElement("BUTTON");
             const playT = document.createTextNode("PLAY");
-
+            
             function init_Btn(){
                 for(i = 0; i<btns.length; i++){
                     btns[i].style.marginLeft = "15px";
@@ -89,21 +85,24 @@
                 
                 if(pScore < 5 && cScore < 5){
                     console.log(pScore + " | " + cScore);
+                    printScoreBoard();
                 }
                 else if(pScore == 5){
                     console.log("PLAYER WIN!");
                     pScore = 0;
                     cScore = 0;
+                    printWinner("PLAYER");
                 }
                 else if(cScore == 5){
                     console.log("COMPUTER WIN!");
                     pScore = 0;
                     cScore = 0;
+                    printWinner("COMPUTER");
+                    
                 }
                 else{
                     console.log("WHY ARE YOU LIKE THIS?!")
                 }
-                printScoreBoard();
             }
             
             
@@ -119,8 +118,13 @@
                 scoreBoard.textContent = pScore + ' | ' + cScore;
             }
 
+            function printWinner(winner){
+                scoreBoard.textContent = winner + " IS VICTORIOUS";
+            }
+
             init_Btn();
             init_playBtn();
+            printScoreBoard();
             
         </script>
     </body>
